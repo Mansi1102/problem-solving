@@ -26,4 +26,8 @@ bin/
 .vscode/
 
 ### Mac OS ###
+.DS_Storeout/
+*.class
+.idea/
+*.iml
 .DS_Store
