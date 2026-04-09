@@ -61,3 +61,70 @@ public class MatrixNearByDistance {
         return dis;
     }
 }
+
+/*
+import java.util.*;
+
+class Solution {
+    public int[][] updateMatrix(int[][] mat) {
+        int n = mat.length;
+        int m = mat[0].length;
+
+        int[][] dis = new int[n][m];
+        int[][] vis = new int[n][m];
+
+        int[] delRow = {-1, 0, 1, 0};
+        int[] delCol = {0, 1, 0, -1};
+
+        Queue<Node> q = new LinkedList<>();
+
+        // Step 1: Push all 0s into queue (Multi-source BFS)
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (mat[i][j] == 0) {
+                    q.add(new Node(i, j, 0));
+                    vis[i][j] = 1;
+                }
+            }
+        }
+
+        // Step 2: BFS
+        while (!q.isEmpty()) {
+            Node curr = q.poll();
+
+            int row = curr.row;
+            int col = curr.col;
+            int step = curr.step;
+
+            dis[row][col] = step;
+
+            for (int i = 0; i < 4; i++) {
+                int newRow = row + delRow[i];
+                int newCol = col + delCol[i];
+
+                if (newRow >= 0 && newRow < n &&
+                    newCol >= 0 && newCol < m &&
+                    vis[newRow][newCol] == 0) {
+
+                    q.add(new Node(newRow, newCol, step + 1));
+                    vis[newRow][newCol] = 1;
+                }
+            }
+        }
+
+        return dis;
+    }
+
+    class Node {
+        int row;
+        int col;
+        int step;
+
+        Node(int row, int col, int step) {
+            this.row = row;
+            this.col = col;
+            this.step = step;
+        }
+    }
+}
+ */
